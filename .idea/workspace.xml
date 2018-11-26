@@ -2,9 +2,13 @@
 <project version="4">
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/src/Utils/Rest.java" line="3" />
+    <bookmark url="file://$PROJECT_DIR$/src/Finals/NoteDurations.java" line="17" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="603e9f44-5bbf-4144-9fea-13bfa84c4649" name="Default" comment="" />
+    <list default="true" id="603e9f44-5bbf-4144-9fea-13bfa84c4649" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/src/Composition/IntervalExpander.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Composition/IntervalExpander.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,14 +48,72 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="100685640">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="1509" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="1509" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="4" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Composition/IntervalExpander.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+            <state relative-caret-position="690">
+              <caret line="30" column="1" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Composition/NoteExtender.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="506">
+              <caret line="58" column="41" lean-forward="true" selection-start-line="58" selection-start-column="41" selection-end-line="58" selection-end-column="41" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="368">
+              <caret line="23" selection-start-line="23" selection-end-line="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Finals/NoteDurations.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="253">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
@@ -66,15 +128,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Utils/Randomic.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Objects/Note.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="391">
@@ -84,15 +137,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2323">
-              <caret line="107" column="36" selection-start-line="107" selection-start-column="30" selection-end-line="107" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Composition/Ostinato.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="69">
@@ -142,10 +186,13 @@
       <find>4</find>
     </findStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="GradleLocalSettings">
     <option name="projectSyncType">
       <map>
-        <entry key="$USER_HOME$/Documents/MobMuPlat/MobMuPlat-Android" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../MobMuPlat/MobMuPlat-Android" value="PREVIEW" />
       </map>
     </option>
   </component>
@@ -158,19 +205,21 @@
         <option value="$PROJECT_DIR$/src/Utils/Normalizer.java" />
         <option value="$PROJECT_DIR$/src/Utils/Pause.java" />
         <option value="$PROJECT_DIR$/src/Utils/Conversor.java" />
-        <option value="$PROJECT_DIR$/src/Composition/IntervalExpander.java" />
         <option value="$PROJECT_DIR$/src/Utils/Randomic.java" />
         <option value="$PROJECT_DIR$/src/Objects/Note.java" />
         <option value="$PROJECT_DIR$/src/Composition/Rhythm.java" />
         <option value="$PROJECT_DIR$/src/Utils/Rest.java" />
         <option value="$PROJECT_DIR$/src/Composition/Ostinato.java" />
         <option value="$PROJECT_DIR$/src/Main.kt" />
+        <option value="$PROJECT_DIR$/src/Composition/IntervalExpander.java" />
+        <option value="$PROJECT_DIR$/src/Finals/NoteDurations.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/Composition/NoteExtender.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="953" />
+    <option name="x" value="-7" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
@@ -183,29 +232,29 @@
         <subPane>
           <expand>
             <path>
-              <item name="comp_music_alg" type="b2602c69:ProjectViewProjectNode" />
-              <item name="comp_music_alg" type="462c0819:PsiDirectoryNode" />
+              <item name="Algorithmic_Composer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Algorithmic_Composer" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="comp_music_alg" type="b2602c69:ProjectViewProjectNode" />
-              <item name="comp_music_alg" type="462c0819:PsiDirectoryNode" />
+              <item name="Algorithmic_Composer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Algorithmic_Composer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="comp_music_alg" type="b2602c69:ProjectViewProjectNode" />
-              <item name="comp_music_alg" type="462c0819:PsiDirectoryNode" />
+              <item name="Algorithmic_Composer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Algorithmic_Composer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Composition" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="comp_music_alg" type="b2602c69:ProjectViewProjectNode" />
-              <item name="comp_music_alg" type="462c0819:PsiDirectoryNode" />
+              <item name="Algorithmic_Composer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Algorithmic_Composer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Objects" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="comp_music_alg" type="b2602c69:ProjectViewProjectNode" />
-              <item name="comp_music_alg" type="462c0819:PsiDirectoryNode" />
+              <item name="Algorithmic_Composer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Algorithmic_Composer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Utils" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -213,13 +262,13 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
       <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538963760823" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543201082457" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
@@ -327,7 +376,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15989584" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.0765625" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -336,8 +385,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32944915" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.7324415" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.28283897" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.13559322" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.28283897" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.329718" />
@@ -391,17 +440,14 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>45</line>
+          <line>21</line>
           <properties />
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>65</line>
-          <properties />
-          <option name="timeStamp" value="3" />
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -445,38 +491,10 @@
     <entry file="file://$PROJECT_DIR$/src/old_NoteConversor.java" />
     <entry file="file://$PROJECT_DIR$/src/Octave.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_112/src.zip!/java/lang/Integer.java" />
-    <entry file="file://$PROJECT_DIR$/src/Composition/IntervalExpander.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Composition/Rhythm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="24" column="52" selection-start-line="24" selection-start-column="52" selection-end-line="24" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Utils/Randomic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Objects/Note.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2323">
-          <caret line="107" column="36" selection-start-line="107" selection-start-column="30" selection-end-line="107" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -505,6 +523,51 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="69">
           <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Composition/Rhythm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="24" column="52" selection-start-line="24" selection-start-column="52" selection-end-line="24" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Utils/Randomic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Finals/NoteDurations.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Composition/IntervalExpander.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="30" column="1" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Composition/NoteExtender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="58" column="41" lean-forward="true" selection-start-line="58" selection-start-column="41" selection-end-line="58" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
         </state>
       </provider>
     </entry>

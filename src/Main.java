@@ -1,4 +1,5 @@
 import Composition.IntervalExpander;
+import Composition.NoteExtender;
 import Composition.Rhythm;
 import Objects.Note;
 
@@ -17,6 +18,8 @@ public class Main {
         }
 
         //Gerador de isômeros
+
+        String[] test = NoteExtender.Extend(20, 0, 6, new String[]{"d", "f", "g"}, 2);
 
         String[] finalConversion = LilypondConversor(notes);
 
