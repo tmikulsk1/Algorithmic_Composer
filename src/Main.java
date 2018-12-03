@@ -2,28 +2,49 @@ import Composition.IntervalExpander;
 import Composition.NoteExtender;
 import Composition.Rhythm;
 import Objects.Note;
+import Utils.Duration;
+
+import java.util.List;
 
 import static Composition.Ostinato.*;
 import static Utils.Conversor.*;
 import static Utils.Rest.*;
+import static Utils.SplitterKt.splitDuration;
 
 public class Main {
     public static void main(String[] args) {
-        int[] fisrtOperation = IntervalExpander.Expand(5, 4, 1, 30, 82);
-        Note[] notes = NoteConversor(fisrtOperation);
+        int[] firstOperation = IntervalExpander.Expand(5, 4, 1, 30, 82);
+        Note[] notes = NoteConversor(firstOperation);
         int[] rhythmFractals = Rhythm.RhythmicFractals(16, 8, 10);
 
         for (int i = 0 ; i < notes.length ; i++) {
             notes[i].setDuration(rhythmFractals[i]);
         }
 
-        //Gerador de isômeros
-
-        String[] test = NoteExtender.Extend(20, 0, 6, new String[]{"d", "f", "g"}, 2);
-
         String[] finalConversion = LilypondConversor(notes);
 
+        List<List<Duration>> test = splitDuration();
+
         GenerateHeader();
+
+        String[] notesSequence = new String[] {"d", "b", "a", "ais", "c"};
+        String[] noteExtenderSequence = NoteExtender.Extend(25, 0, 6, notesSequence, 4);
+
+        System.out.println("voiceOne = { ");
+        System.out.println(noteExtenderSequence[0]);
+        System.out.println("}");
+
+        System.out.println("voiceTwo = { ");
+        System.out.println(noteExtenderSequence[1]);
+        System.out.println("}");
+
+        System.out.println("voiceThree = { ");
+        System.out.println(noteExtenderSequence[2]);
+        System.out.println("}");
+
+        System.out.println("voiceFour = { ");
+        System.out.println(noteExtenderSequence[3]);
+        System.out.println("}");
 
         System.out.println("partOne = { \\clef bass");
 
