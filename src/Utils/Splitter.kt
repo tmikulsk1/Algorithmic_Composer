@@ -1,9 +1,14 @@
 package Utils
 
-    fun splitDuration(): List<List<Duration>> {
+import Composition.Staff
+import Finals.NoteDuration
 
-        var input = mutableListOf(1, 4, 4, 1, 3, 2, 2, 0)
-        var timeSignature = TimeSignature(4,4)
+fun splitDuration(staff: Staff): Result {
+
+        //var input = mutableListOf(1, 4, 4, 1, 3, 2, 2, 0)
+        var finalStaff = staff
+        //var list = finalStaff.duration
+        val timeSignature = TimeSignature(4,4)
         val denominator = timeSignature.denominator.toFloat()
         val numerator = timeSignature.numerator.toFloat()
         var fullCompass = mutableListOf<Duration>()
@@ -12,22 +17,22 @@ package Utils
         var run = true
 
         while (run) {
-            var modulus = input[index].rem(2)
-            if (modulus != 0 && input[index] != 1) {
-                breakDuration(input, index)
+            var modulus = finalStaff.duration[index].duration.rem(2)
+            if (modulus != 0 && finalStaff.duration[index].duration != 1) {
+                breakDuration(staff, index)
             }
 
-            var percent: Float = (denominator / input[index]) / numerator
+            var percent: Float = (denominator / finalStaff.duration[index].duration) / numerator
             var compassSize = fullCompass.map { it.percent }.sum()
 
             if (percent > 1 || compassSize + percent > 1f) {
                 while (percent > 1 || compassSize + percent > 1f) {
-                    input = breakDuration(input, index)
-                    percent = (denominator / input[index]) / numerator
+                    finalStaff = breakDuration(staff, index)
+                    percent = (denominator / finalStaff.duration[index].duration) / numerator
                 }
             }
 
-            fullCompass.add(Duration(input[index], percent))
+            fullCompass.add(Duration(finalStaff.duration[index].duration, percent))
 
             compassSize = fullCompass.map { it.percent }.sum()
             if (compassSize == 1f) {
@@ -36,27 +41,38 @@ package Utils
             }
 
             index += 1
-            if (index == input.size - 1) {
+            if (index == finalStaff.duration.size - 1) {
                 output.add(fullCompass)
                 run = false
             }
         }
 
-        return output
+        return Result(output, finalStaff)
     }
 
-    fun breakDuration(durationList: MutableList<Int>, index: Int): MutableList<Int> {
-        val modulus = durationList[index].rem(2)
-        val splittedDuration = if (modulus == 0 || durationList[index] == 1) durationList[index] * 2 else durationList[index] + 1
-        val times = if (modulus == 0 || durationList[index] == 1) 2 else 3
+    fun breakDuration(staff: Staff, index: Int): Staff {
+        val actualDuration = staff.duration
+        val actualNote = staff.note
+        val actualSymbol = staff.symbol
 
-        durationList.removeAt(index)
+        val modulus = actualDuration[index].duration.rem(2)
+        val splittedDuration = if (modulus == 0 || actualDuration[index].duration == 1) actualDuration[index].duration * 2 else actualDuration[index].duration + 1
+        val times = if (modulus == 0 || actualDuration[index].duration == 1) 2 else 3
+
+        actualDuration.removeAt(index)
+        actualNote.removeAt(index)
+        actualSymbol.removeAt(index)
+
         repeat(times) {
-            durationList.add(index, splittedDuration)
+            actualDuration.add(index, NoteDuration(splittedDuration))
+            actualNote.add(index, actualNote[index])
+            actualSymbol.add(index, actualSymbol[index])
         }
 
-        return durationList
+        return Staff(actualNote, actualDuration, actualSymbol)
     }
 
 data class Duration(val duration: Int, val percent: Float)
 data class TimeSignature(val numerator: Int = 0, val denominator: Int = 0)
+
+data class Result(val listCompass: List<List<Duration>>, val staff: Staff)

@@ -1,11 +1,16 @@
 import Composition.IntervalExpander;
 import Composition.NoteExtender;
 import Composition.Rhythm;
+import Composition.Staff;
 import Objects.Note;
 import Utils.Duration;
+import Utils.Result;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.List;
 
+import static Composition.NoteExtenderKt.extendNotes;
 import static Composition.Ostinato.*;
 import static Utils.Conversor.*;
 import static Utils.Rest.*;
@@ -23,27 +28,39 @@ public class Main {
 
         String[] finalConversion = LilypondConversor(notes);
 
-        List<List<Duration>> test = splitDuration();
+
+
+
+        // TESTE EXPANSOR NOTAS
+        List<String> listOfNotes = Arrays.asList("a","b", "c", "d");
+        List<Staff> testeee = extendNotes(20, 2, listOfNotes);
+
+        Result tatatata = splitDuration(testeee.get(0));
 
         GenerateHeader();
 
-        String[] notesSequence = new String[] {"d", "b", "a", "ais", "c"};
-        String[] noteExtenderSequence = NoteExtender.Extend(25, 0, 6, notesSequence, 4);
+//        String[] notesSequence = new String[] {"d", "b", "a", "ais", "c"};
+//        String[] noteExtenderSequence = NoteExtender.Extend(25, 0, 6, notesSequence, 4);
 
         System.out.println("voiceOne = { ");
-        System.out.println(noteExtenderSequence[0]);
+        String printtedNote = "";
+        for (int i = 0 ; i < tatatata.getStaff().getNote().size() ; i++) {
+            printtedNote += tatatata.getStaff().getNote().get(i) + tatatata.getStaff().getDuration().get(i).getLilypondDuration() + " ";
+        }
+        System.out.println(printtedNote);
+       // System.out.println(noteExtenderSequence[0]);
         System.out.println("}");
 
         System.out.println("voiceTwo = { ");
-        System.out.println(noteExtenderSequence[1]);
+       // System.out.println(noteExtenderSequence[1]);
         System.out.println("}");
 
         System.out.println("voiceThree = { ");
-        System.out.println(noteExtenderSequence[2]);
+     //   System.out.println(noteExtenderSequence[2]);
         System.out.println("}");
 
         System.out.println("voiceFour = { ");
-        System.out.println(noteExtenderSequence[3]);
+      //  System.out.println(noteExtenderSequence[3]);
         System.out.println("}");
 
         System.out.println("partOne = { \\clef bass");
