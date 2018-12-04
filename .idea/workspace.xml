@@ -5,8 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="603e9f44-5bbf-4144-9fea-13bfa84c4649" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/out/production/comp_music_alg/Composition/NoteExtender.class" afterPath="$PROJECT_DIR$/out/production/comp_music_alg/Composition/NoteExtender.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/comp_music_alg/Composition/NoteExtenderKt.class" afterPath="$PROJECT_DIR$/out/production/comp_music_alg/Composition/NoteExtenderKt.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/comp_music_alg/Finals/NoteDurations.class" afterPath="$PROJECT_DIR$/out/production/comp_music_alg/Finals/NoteDurations.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/comp_music_alg/META-INF/comp_music_alg.kotlin_module" afterPath="$PROJECT_DIR$/out/production/comp_music_alg/META-INF/comp_music_alg.kotlin_module" />
+      <change beforePath="$PROJECT_DIR$/out/production/comp_music_alg/Main.class" afterPath="$PROJECT_DIR$/out/production/comp_music_alg/Main.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/comp_music_alg/Utils/Duration.class" afterPath="$PROJECT_DIR$/out/production/comp_music_alg/Utils/Duration.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/comp_music_alg/Utils/Result.class" afterPath="$PROJECT_DIR$/out/production/comp_music_alg/Utils/Result.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/comp_music_alg/Utils/SplitterKt.class" afterPath="$PROJECT_DIR$/out/production/comp_music_alg/Utils/SplitterKt.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/comp_music_alg/Utils/TimeSignature.class" afterPath="$PROJECT_DIR$/out/production/comp_music_alg/Utils/TimeSignature.class" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -90,8 +97,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="20" column="40" lean-forward="true" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
+            <state relative-caret-position="415">
+              <caret line="350" column="0" lean-forward="true" selection-start-line="350" selection-start-column="0" selection-end-line="350" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -404,7 +411,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -668,8 +675,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="20" column="40" lean-forward="true" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
+        <state relative-caret-position="415">
+          <caret line="350" column="0" lean-forward="true" selection-start-line="350" selection-start-column="0" selection-end-line="350" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

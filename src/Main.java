@@ -20,8 +20,6 @@ import static Utils.Rest.*;
 import static Utils.SplitterKt.splitDuration;
 import static Utils.SymbolKt.insertSlur;
 
-
-
 public class Main {
     public static void main(String[] args) {
         /**
@@ -306,27 +304,44 @@ public class Main {
         Result crossover3 = SimpleCrossover(three, four);
         Result crossover4 = SimpleCrossover(four, one);
 
+        Staff cross1WithSlur = insertSlur(crossover1.getStaff());
+        Staff cross2WithSlur = insertSlur(crossover2.getStaff());
+        Staff cross3WithSlur = insertSlur(crossover3.getStaff());
+        Staff cross4WithSlur = insertSlur(crossover4.getStaff());
+
         System.out.println("crossoverONE = { ");
         for (int i = 0 ; i < crossover1.getStaff().getNote().size() ; i++) {
-            System.out.print(crossover1.getStaff().getNote().get(i) + crossover1.getStaff().getDuration().get(i).getLilypondDuration() + " ");
+            System.out.print(crossover1.getStaff().getNote().get(i) +
+                    crossover1.getStaff().getDuration().get(i).getLilypondDuration() +
+                    cross1WithSlur.getSymbol().get(i) + " "
+            );
         }
         System.out.println("}");
 
         System.out.println("crossoverTWO = { ");
         for (int i = 0 ; i < crossover2.getStaff().getNote().size() ; i++) {
-            System.out.print(crossover2.getStaff().getNote().get(i) + crossover2.getStaff().getDuration().get(i).getLilypondDuration() + " ");
+            System.out.print(crossover2.getStaff().getNote().get(i) +
+                    crossover2.getStaff().getDuration().get(i).getLilypondDuration() +
+                    cross2WithSlur.getSymbol().get(i) + " "
+            );
         }
         System.out.println("}");
 
         System.out.println("crossoverTHREE = { ");
         for (int i = 0 ; i < crossover3.getStaff().getNote().size() ; i++) {
-            System.out.print(crossover3.getStaff().getNote().get(i) + crossover3.getStaff().getDuration().get(i).getLilypondDuration() + " ");
+            System.out.print(crossover3.getStaff().getNote().get(i) +
+                    crossover3.getStaff().getDuration().get(i).getLilypondDuration() +
+                    cross3WithSlur.getSymbol().get(i) + " "
+            );
         }
         System.out.println("}");
 
         System.out.println("crossoverFOUR = { ");
         for (int i = 0 ; i < crossover4.getStaff().getNote().size() ; i++) {
-            System.out.print(crossover4.getStaff().getNote().get(i) + crossover4.getStaff().getDuration().get(i).getLilypondDuration() + " ");
+            System.out.print(crossover4.getStaff().getNote().get(i) +
+                    crossover4.getStaff().getDuration().get(i).getLilypondDuration() +
+                    cross4WithSlur.getSymbol().get(i) + " "
+            );
         }
         System.out.println("}");
 
