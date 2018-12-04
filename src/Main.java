@@ -16,7 +16,10 @@ import static Composition.NoteExtenderKt.extendNotes;
 import static Composition.Ostinato.*;
 import static Utils.Conversor.*;
 import static Utils.Rest.*;
+
 import static Utils.SplitterKt.splitDuration;
+import static Utils.SymbolKt.insertSlur;
+
 
 
 public class Main {
@@ -33,7 +36,7 @@ public class Main {
             e.printStackTrace();
         }
         System.setOut(out);
-        
+
         /**
          * START WRITE
          */
@@ -150,42 +153,43 @@ public class Main {
         System.out.println("\t\t\\new StaffGroup");
         System.out.println("\t\t\t<<");
 
-            // Cello 1
-            System.out.println("\t\t\t\\new Staff = \"CelloOne\" {");
-            System.out.println("\t\t\t\t\\set Staff.instrumentName = #\"Cello 1\"");
-            // INSERT NOTES
-            System.out.println("\t\t\t\t\\clef bass");
-            System.out.println("\t\t\t\t\\extendedNotesONE");
-            System.out.println("\t\t\t}");
+        // Cello 1
+        System.out.println("\t\t\t\\new Staff = \"CelloOne\" {");
+        System.out.println("\t\t\t\t\\set Staff.instrumentName = #\"Cello 1\"");
+        // INSERT NOTES
+        System.out.println("\t\t\t\t\\clef bass");
+        System.out.println("\t\t\t\t\\extendedNotesONE");
+        System.out.println("\t\t\t}");
 
-            // Cello 2
-            System.out.println("\t\t\t\\new Staff = \"CelloTwo\" {");
-            System.out.println("\t\t\t\t\\set Staff.instrumentName = #\"Cello 2\"");
-            // INSERT NOTES
-            System.out.println("\t\t\t\t\\clef bass");
-            System.out.println("\t\t\t\t\\extendedNotesTWO");
-            System.out.println("\t\t\t}");
+        // Cello 2
+        System.out.println("\t\t\t\\new Staff = \"CelloTwo\" {");
+        System.out.println("\t\t\t\t\\set Staff.instrumentName = #\"Cello 2\"");
+        // INSERT NOTES
+        System.out.println("\t\t\t\t\\clef bass");
+        System.out.println("\t\t\t\t\\extendedNotesTWO");
+        System.out.println("\t\t\t}");
 
-            //Cello 3
-            System.out.println("\t\t\t\\new Staff = \"CelloThree\" {");
-            System.out.println("\t\t\t\t\\set Staff.instrumentName = #\"Cello 3\"");
-            // INSERT NOTES
-            System.out.println("\t\t\t\t\\clef bass");
-            System.out.println("\t\t\t\t\\extendedNotesTHREE");
-            System.out.println("\t\t\t}");
+        //Cello 3
+        System.out.println("\t\t\t\\new Staff = \"CelloThree\" {");
+        System.out.println("\t\t\t\t\\set Staff.instrumentName = #\"Cello 3\"");
+        // INSERT NOTES
+        System.out.println("\t\t\t\t\\clef bass");
+        System.out.println("\t\t\t\t\\extendedNotesTHREE");
+        System.out.println("\t\t\t}");
 
-            //Cello 4
-            System.out.println("\t\t\t\\new Staff = \"CelloFour\" {");
-            System.out.println("\t\t\t\t\\set Staff.instrumentName = #\"Cello 4\"");
-            // INSERT NOTES
-            System.out.println("\t\t\t\t\\clef bass");
-            System.out.println("\t\t\t\t\\extendedNotesFOUR");
-            System.out.println("\t\t\t}");
+        //Cello 4
+        System.out.println("\t\t\t\\new Staff = \"CelloFour\" {");
+        System.out.println("\t\t\t\t\\set Staff.instrumentName = #\"Cello 4\"");
+        // INSERT NOTES
+        System.out.println("\t\t\t\t\\clef bass");
+        System.out.println("\t\t\t\t\\extendedNotesFOUR");
+        System.out.println("\t\t\t}");
 
         System.out.println("\t\t\t>>");
         System.out.println("\t\t>>");
         System.out.println("\t}");
     }
+
 
     private static void GenerateExtendedNotes1() {
         List<String> listOfNotes = Arrays.asList("a","b", "cis", "g", "gis");
@@ -196,27 +200,49 @@ public class Main {
         Result cello3 = splitDuration(extendedNotes.get(2));
         Result cello4 = splitDuration(extendedNotes.get(3));
 
+        Staff cello1WithSlur = insertSlur(cello1.getStaff());
+        Staff cello2WithSlur = insertSlur(cello2.getStaff());
+        Staff cello3WithSlur = insertSlur(cello3.getStaff());
+        Staff cello4WithSlur = insertSlur(cello4.getStaff());
+
         System.out.println("extendedNotesONE = { ");
         for (int i = 0 ; i < cello1.getStaff().getNote().size() ; i++) {
-            System.out.print(cello1.getStaff().getNote().get(i) + cello1.getStaff().getDuration().get(i).getLilypondDuration() + " ");
+            System.out.print(
+                    cello1.getStaff().getNote().get(i) +
+                            cello1.getStaff().getDuration().get(i).getLilypondDuration() +
+                            cello1WithSlur.getSymbol().get(i) + " "
+
+            );
         }
         System.out.println("}");
 
         System.out.println("extendedNotesTWO = { ");
         for (int i = 0 ; i < cello2.getStaff().getNote().size() ; i++) {
-            System.out.print(cello2.getStaff().getNote().get(i) + cello2.getStaff().getDuration().get(i).getLilypondDuration() + " ");
+            System.out.print(
+                    cello2.getStaff().getNote().get(i) +
+                            cello2.getStaff().getDuration().get(i).getLilypondDuration() +
+                            cello2WithSlur.getSymbol().get(i) + " "
+            );
         }
         System.out.println("}");
 
         System.out.println("extendedNotesTHREE = { ");
         for (int i = 0 ; i < cello3.getStaff().getNote().size() ; i++) {
-            System.out.print(cello3.getStaff().getNote().get(i) + cello3.getStaff().getDuration().get(i).getLilypondDuration() + " ");
+            System.out.print(
+                    cello3.getStaff().getNote().get(i) +
+                            cello3.getStaff().getDuration().get(i).getLilypondDuration() +
+                            cello3WithSlur.getSymbol().get(i) + " "
+            );
         }
         System.out.println("}");
 
         System.out.println("extendedNotesFOUR = { ");
         for (int i = 0 ; i < cello4.getStaff().getNote().size() ; i++) {
-            System.out.print(cello4.getStaff().getNote().get(i) + cello4.getStaff().getDuration().get(i).getLilypondDuration() + " ");
+            System.out.print(
+                    cello4.getStaff().getNote().get(i) +
+                            cello4.getStaff().getDuration().get(i).getLilypondDuration() +
+                            cello4WithSlur.getSymbol().get(i) + " "
+            );
         }
         System.out.println("}");
 
