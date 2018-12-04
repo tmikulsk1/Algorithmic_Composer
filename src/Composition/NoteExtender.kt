@@ -34,7 +34,7 @@ fun extendNotes(size: Int, staffQuantity: Int, listOfNotes: List<String>): Mutab
 
         for (i in 0..quantitySlurs) {
             val note = listOfNotes[noteIndex]
-            val duration = durations[(0..8).random()] // static max/min durations
+            val duration = durations[(0..4).random()] // static max/min durations
             val symbol = ""
 
             staffs[selectedStaff].note.add(note)

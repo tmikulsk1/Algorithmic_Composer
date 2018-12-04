@@ -4,10 +4,7 @@ import Composition.Staff
 import Finals.NoteDuration
 
 fun splitDuration(staff: Staff): Result {
-
-        //var input = mutableListOf(1, 4, 4, 1, 3, 2, 2, 0)
         var finalStaff = staff
-        //var list = finalStaff.duration
         val timeSignature = TimeSignature(4,4)
         val denominator = timeSignature.denominator.toFloat()
         val numerator = timeSignature.numerator.toFloat()
@@ -74,5 +71,4 @@ fun splitDuration(staff: Staff): Result {
 
 data class Duration(val duration: Int, val percent: Float)
 data class TimeSignature(val numerator: Int = 0, val denominator: Int = 0)
-
 data class Result(val listCompass: List<List<Duration>>, val staff: Staff)
