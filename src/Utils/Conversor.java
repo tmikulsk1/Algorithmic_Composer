@@ -1,5 +1,7 @@
 package Utils;
 
+import Composition.Staff;
+import Finals.NoteDuration;
 import Objects.Note;
 
 public class Conversor {
@@ -25,6 +27,20 @@ public class Conversor {
             output[i] = convertToPitch(pitch);
             output[i] += convertToDuration(octave, duration);
         }
+        return output;
+    }
+
+    public static Staff StaffConversor(Note[] notes) {
+        Staff output = new Staff();
+
+        for (int i = 0 ; i < notes.length ; i++) {
+            String note = convertToPitch(notes[i].getPitchClass()) + convertToLilypondOctave( notes[i].getOctave());
+            output.component1().add(i, note);
+            NoteDuration duration = new NoteDuration(notes[i].getDuration(), String.valueOf(notes[i].getDuration()));
+            output.component2().add(i,duration);
+            output.component3().add(i, "");
+        }
+
         return output;
     }
 
@@ -137,6 +153,37 @@ public class Conversor {
                 break;
             default:
                 output = "" + duration;
+                break;
+        }
+        return output;
+    }
+
+    private static String convertToLilypondOctave(int octave) {
+        String output;
+        switch (octave) {
+            case 0:
+                output = ",,,";
+                break;
+            case 1:
+                output = ",,";
+                break;
+            case 2:
+                output = ",";
+                break;
+            case 3:
+                output = "";
+                break;
+            case 4:
+                output = "'";
+                break;
+            case 5:
+                output = "''";
+                break;
+            case 6:
+                output = "'''";
+                break;
+            default:
+                output = "";
                 break;
         }
         return output;
