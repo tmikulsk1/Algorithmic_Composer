@@ -16,16 +16,18 @@ import static Composition.NoteExtenderKt.extendNotes;
 import static Composition.Ostinato.*;
 import static Utils.Conversor.*;
 import static Utils.Rest.*;
-import static Utils.SplitterKt.splitDuration;
 
+import static Utils.SplitterKt.splitDuration;
+import static Utils.StaffInsertionKt.staffInsertion;
+import static Utils.SymbolKt.insertSlur;
 
 public class Main {
+    private static Staff expanderAsStaff;
+
     public static void main(String[] args) {
         /**
-         *
          * GENERATE .LY
          */
-
         PrintStream out = null;
         try {
             out = new PrintStream(new FileOutputStream("output.ly"));
@@ -33,13 +35,11 @@ public class Main {
             e.printStackTrace();
         }
         System.setOut(out);
-        
+
         /**
          * START WRITE
          */
         GenerateHeader();
-
-        GenerateExtendedNotes1();
         GenerateGrupetos();
 
         /**
@@ -54,6 +54,7 @@ public class Main {
         }
 
         String[] finalConversion = LilypondConversor(notes);
+        expanderAsStaff = StaffConversor(notes);
 
         System.out.println("partONE = { ");
 
@@ -112,6 +113,7 @@ public class Main {
 
         System.out.println("}");
 
+        GenerateExtendedNotes1();
         GenerateBody();
         GenerateFooter();
 
@@ -150,73 +152,105 @@ public class Main {
         System.out.println("\t\t\\new StaffGroup");
         System.out.println("\t\t\t<<");
 
-            // Cello 1
-            System.out.println("\t\t\t\\new Staff = \"CelloOne\" {");
-            System.out.println("\t\t\t\t\\set Staff.instrumentName = #\"Cello 1\"");
-            // INSERT NOTES
-            System.out.println("\t\t\t\t\\clef bass");
-            System.out.println("\t\t\t\t\\extendedNotesONE");
-            System.out.println("\t\t\t}");
+        // Cello 1
+        System.out.println("\t\t\t\\new Staff = \"CelloOne\" {");
+        System.out.println("\t\t\t\t\\set Staff.instrumentName = #\"Cello 1\"");
+        // INSERT NOTES
+        System.out.println("\t\t\t\t\\clef bass");
+        System.out.println("\t\t\t\t\\extendedNotesONE");
+        System.out.println("\t\t\t}");
 
-            // Cello 2
-            System.out.println("\t\t\t\\new Staff = \"CelloTwo\" {");
-            System.out.println("\t\t\t\t\\set Staff.instrumentName = #\"Cello 2\"");
-            // INSERT NOTES
-            System.out.println("\t\t\t\t\\clef bass");
-            System.out.println("\t\t\t\t\\extendedNotesTWO");
-            System.out.println("\t\t\t}");
+        // Cello 2
+        System.out.println("\t\t\t\\new Staff = \"CelloTwo\" {");
+        System.out.println("\t\t\t\t\\set Staff.instrumentName = #\"Cello 2\"");
+        // INSERT NOTES
+        System.out.println("\t\t\t\t\\clef bass");
+        System.out.println("\t\t\t\t\\extendedNotesTWO");
+        System.out.println("\t\t\t}");
 
-            //Cello 3
-            System.out.println("\t\t\t\\new Staff = \"CelloThree\" {");
-            System.out.println("\t\t\t\t\\set Staff.instrumentName = #\"Cello 3\"");
-            // INSERT NOTES
-            System.out.println("\t\t\t\t\\clef bass");
-            System.out.println("\t\t\t\t\\extendedNotesTHREE");
-            System.out.println("\t\t\t}");
+        //Cello 3
+        System.out.println("\t\t\t\\new Staff = \"CelloThree\" {");
+        System.out.println("\t\t\t\t\\set Staff.instrumentName = #\"Cello 3\"");
+        // INSERT NOTES
+        System.out.println("\t\t\t\t\\clef bass");
+        System.out.println("\t\t\t\t\\extendedNotesTHREE");
+        System.out.println("\t\t\t}");
 
-            //Cello 4
-            System.out.println("\t\t\t\\new Staff = \"CelloFour\" {");
-            System.out.println("\t\t\t\t\\set Staff.instrumentName = #\"Cello 4\"");
-            // INSERT NOTES
-            System.out.println("\t\t\t\t\\clef bass");
-            System.out.println("\t\t\t\t\\extendedNotesFOUR");
-            System.out.println("\t\t\t}");
+        //Cello 4
+        System.out.println("\t\t\t\\new Staff = \"CelloFour\" {");
+        System.out.println("\t\t\t\t\\set Staff.instrumentName = #\"Cello 4\"");
+        // INSERT NOTES
+        System.out.println("\t\t\t\t\\clef bass");
+        System.out.println("\t\t\t\t\\extendedNotesFOUR");
+        System.out.println("\t\t\t}");
 
         System.out.println("\t\t\t>>");
         System.out.println("\t\t>>");
         System.out.println("\t}");
     }
 
+
     private static void GenerateExtendedNotes1() {
+
+        Staff begin1 = expanderAsStaff;
+        Staff restForStaffs = RestGeneratorForStaff(expanderAsStaff);
+
         List<String> listOfNotes = Arrays.asList("a","b", "cis", "g", "gis");
         List<Staff> extendedNotes = extendNotes(55, 4, listOfNotes);
 
-        Result cello1 = splitDuration(extendedNotes.get(0));
-        Result cello2 = splitDuration(extendedNotes.get(1));
-        Result cello3 = splitDuration(extendedNotes.get(2));
-        Result cello4 = splitDuration(extendedNotes.get(3));
+        Staff cello1Line = staffInsertion(begin1, extendedNotes.get(0));
+        Staff cello2Line = staffInsertion(restForStaffs, extendedNotes.get(1));
+        Staff cello3Line = staffInsertion(restForStaffs, extendedNotes.get(2));
+        Staff cello4Line = staffInsertion(restForStaffs, extendedNotes.get(3));
+
+        Result cello1 = splitDuration(cello1Line);
+        Result cello2 = splitDuration(cello2Line);
+        Result cello3 = splitDuration(cello3Line);
+        Result cello4 = splitDuration(cello4Line);
+
+        Staff cello1WithSlur = insertSlur(cello1.getStaff());
+        Staff cello2WithSlur = insertSlur(cello2.getStaff());
+        Staff cello3WithSlur = insertSlur(cello3.getStaff());
+        Staff cello4WithSlur = insertSlur(cello4.getStaff());
 
         System.out.println("extendedNotesONE = { ");
         for (int i = 0 ; i < cello1.getStaff().getNote().size() ; i++) {
-            System.out.print(cello1.getStaff().getNote().get(i) + cello1.getStaff().getDuration().get(i).getLilypondDuration() + " ");
+            System.out.print(
+                    cello1.getStaff().getNote().get(i) +
+                            cello1.getStaff().getDuration().get(i).getLilypondDuration() +
+                            cello1WithSlur.getSymbol().get(i) + " "
+
+            );
         }
         System.out.println("}");
 
         System.out.println("extendedNotesTWO = { ");
         for (int i = 0 ; i < cello2.getStaff().getNote().size() ; i++) {
-            System.out.print(cello2.getStaff().getNote().get(i) + cello2.getStaff().getDuration().get(i).getLilypondDuration() + " ");
+            System.out.print(
+                    cello2.getStaff().getNote().get(i) +
+                            cello2.getStaff().getDuration().get(i).getLilypondDuration() +
+                            cello2WithSlur.getSymbol().get(i) + " "
+            );
         }
         System.out.println("}");
 
         System.out.println("extendedNotesTHREE = { ");
         for (int i = 0 ; i < cello3.getStaff().getNote().size() ; i++) {
-            System.out.print(cello3.getStaff().getNote().get(i) + cello3.getStaff().getDuration().get(i).getLilypondDuration() + " ");
+            System.out.print(
+                    cello3.getStaff().getNote().get(i) +
+                            cello3.getStaff().getDuration().get(i).getLilypondDuration() +
+                            cello3WithSlur.getSymbol().get(i) + " "
+            );
         }
         System.out.println("}");
 
         System.out.println("extendedNotesFOUR = { ");
         for (int i = 0 ; i < cello4.getStaff().getNote().size() ; i++) {
-            System.out.print(cello4.getStaff().getNote().get(i) + cello4.getStaff().getDuration().get(i).getLilypondDuration() + " ");
+            System.out.print(
+                    cello4.getStaff().getNote().get(i) +
+                            cello4.getStaff().getDuration().get(i).getLilypondDuration() +
+                            cello4WithSlur.getSymbol().get(i) + " "
+            );
         }
         System.out.println("}");
 
@@ -280,27 +314,44 @@ public class Main {
         Result crossover3 = SimpleCrossover(three, four);
         Result crossover4 = SimpleCrossover(four, one);
 
+        Staff cross1WithSlur = insertSlur(crossover1.getStaff());
+        Staff cross2WithSlur = insertSlur(crossover2.getStaff());
+        Staff cross3WithSlur = insertSlur(crossover3.getStaff());
+        Staff cross4WithSlur = insertSlur(crossover4.getStaff());
+
         System.out.println("crossoverONE = { ");
         for (int i = 0 ; i < crossover1.getStaff().getNote().size() ; i++) {
-            System.out.print(crossover1.getStaff().getNote().get(i) + crossover1.getStaff().getDuration().get(i).getLilypondDuration() + " ");
+            System.out.print(crossover1.getStaff().getNote().get(i) +
+                    crossover1.getStaff().getDuration().get(i).getLilypondDuration() +
+                    cross1WithSlur.getSymbol().get(i) + " "
+            );
         }
         System.out.println("}");
 
         System.out.println("crossoverTWO = { ");
         for (int i = 0 ; i < crossover2.getStaff().getNote().size() ; i++) {
-            System.out.print(crossover2.getStaff().getNote().get(i) + crossover2.getStaff().getDuration().get(i).getLilypondDuration() + " ");
+            System.out.print(crossover2.getStaff().getNote().get(i) +
+                    crossover2.getStaff().getDuration().get(i).getLilypondDuration() +
+                    cross2WithSlur.getSymbol().get(i) + " "
+            );
         }
         System.out.println("}");
 
         System.out.println("crossoverTHREE = { ");
         for (int i = 0 ; i < crossover3.getStaff().getNote().size() ; i++) {
-            System.out.print(crossover3.getStaff().getNote().get(i) + crossover3.getStaff().getDuration().get(i).getLilypondDuration() + " ");
+            System.out.print(crossover3.getStaff().getNote().get(i) +
+                    crossover3.getStaff().getDuration().get(i).getLilypondDuration() +
+                    cross3WithSlur.getSymbol().get(i) + " "
+            );
         }
         System.out.println("}");
 
         System.out.println("crossoverFOUR = { ");
         for (int i = 0 ; i < crossover4.getStaff().getNote().size() ; i++) {
-            System.out.print(crossover4.getStaff().getNote().get(i) + crossover4.getStaff().getDuration().get(i).getLilypondDuration() + " ");
+            System.out.print(crossover4.getStaff().getNote().get(i) +
+                    crossover4.getStaff().getDuration().get(i).getLilypondDuration() +
+                    cross4WithSlur.getSymbol().get(i) + " "
+            );
         }
         System.out.println("}");
 
