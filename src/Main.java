@@ -18,15 +18,16 @@ import static Utils.Conversor.*;
 import static Utils.Rest.*;
 
 import static Utils.SplitterKt.splitDuration;
+import static Utils.StaffInsertionKt.staffInsertion;
 import static Utils.SymbolKt.insertSlur;
 
 public class Main {
+    private static Staff expanderAsStaff;
+
     public static void main(String[] args) {
         /**
-         *
          * GENERATE .LY
          */
-
         PrintStream out = null;
         try {
             out = new PrintStream(new FileOutputStream("output.ly"));
@@ -39,8 +40,6 @@ public class Main {
          * START WRITE
          */
         GenerateHeader();
-
-        GenerateExtendedNotes1();
         GenerateGrupetos();
 
         /**
@@ -55,6 +54,7 @@ public class Main {
         }
 
         String[] finalConversion = LilypondConversor(notes);
+        expanderAsStaff = StaffConversor(notes);
 
         System.out.println("partONE = { ");
 
@@ -113,6 +113,7 @@ public class Main {
 
         System.out.println("}");
 
+        GenerateExtendedNotes1();
         GenerateBody();
         GenerateFooter();
 
@@ -190,13 +191,22 @@ public class Main {
 
 
     private static void GenerateExtendedNotes1() {
+
+        Staff begin1 = expanderAsStaff;
+        Staff restForStaffs = RestGeneratorForStaff(expanderAsStaff);
+
         List<String> listOfNotes = Arrays.asList("a","b", "cis", "g", "gis");
         List<Staff> extendedNotes = extendNotes(55, 4, listOfNotes);
 
-        Result cello1 = splitDuration(extendedNotes.get(0));
-        Result cello2 = splitDuration(extendedNotes.get(1));
-        Result cello3 = splitDuration(extendedNotes.get(2));
-        Result cello4 = splitDuration(extendedNotes.get(3));
+        Staff cello1Line = staffInsertion(begin1, extendedNotes.get(0));
+        Staff cello2Line = staffInsertion(restForStaffs, extendedNotes.get(1));
+        Staff cello3Line = staffInsertion(restForStaffs, extendedNotes.get(2));
+        Staff cello4Line = staffInsertion(restForStaffs, extendedNotes.get(3));
+
+        Result cello1 = splitDuration(cello1Line);
+        Result cello2 = splitDuration(cello2Line);
+        Result cello3 = splitDuration(cello3Line);
+        Result cello4 = splitDuration(cello4Line);
 
         Staff cello1WithSlur = insertSlur(cello1.getStaff());
         Staff cello2WithSlur = insertSlur(cello2.getStaff());
