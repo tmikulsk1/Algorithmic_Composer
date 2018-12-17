@@ -114,3 +114,8 @@ O método de crossover foi desenvolvido com base em algoritmos genéticos, onde 
 
 Cada vez que o código é executado, a saída será levemente diferente, pois na maioria dos geradores há uma seleção aleatória de notas ou durações.
 
+___
+
+## OUTPUT FINAL - arquivo _.ly_:
+### https://gist.github.com/tmikulsk1/d8d84aba651ab8007a4de90a2a0bd037
+
